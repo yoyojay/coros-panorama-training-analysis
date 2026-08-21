@@ -1,0 +1,197 @@
+/* =========================================================================
+   Ride Relief Design System — adapted for COROS training analysis reports
+   Source style: op7418/guizang-sports-skill (Ride Relief / Route Relief)
+   Adopted palette & layout language for our dark, data-dense run reports.
+   Self-contained: drop into any single-file HTML <style> block.
+   ========================================================================= */
+
+:root {
+  color-scheme: dark;
+  --background: #0b0d0c;
+  --panel: #111411;
+  --panel-soft: #171a17;
+  --ink: #f1f3e9;
+  --muted: #8b938a;
+  --line: rgba(235, 240, 225, 0.13);
+  --accent: #d6ff64;          /* signature lime */
+  --accent-soft: rgba(214, 255, 100, 0.08);
+  --danger: #ff6b5f;
+  --warn: #ffc857;
+  --cool: #72e8ff;
+  --font: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont,
+          "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--background); }
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 40px;
+}
+
+/* ---------- Top bar / brand ---------- */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 28px; border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--background) 90%, transparent);
+  backdrop-filter: blur(18px); position: sticky; top: 0; z-index: 20;
+}
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.brand-mark {
+  width: 31px; height: 31px; display: grid; place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 72%, transparent);
+  border-radius: 50%; color: var(--accent);
+  box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 22%, transparent);
+  font-size: 16px;
+}
+.brand strong { display: block; font-size: 13px; letter-spacing: 0.16em; line-height: 1.1; }
+.brand small { display: block; margin-top: 3px; color: var(--muted); font-size: 8px; letter-spacing: 0.22em; }
+.privacy-pill {
+  display: inline-flex; align-items: center; gap: 7px; color: var(--muted);
+  font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.privacy-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 8px var(--accent); }
+
+/* ---------- Stage / hero ---------- */
+/* ---------- Weather badge (training-day weather) ---------- */
+.weather-badge {
+  display: inline-flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  margin: 14px 0 4px; padding: 9px 15px;
+  background: color-mix(in srgb, var(--cool) 9%, var(--panel));
+  border: 1px solid color-mix(in srgb, var(--cool) 38%, transparent);
+  border-radius: 999px;
+  font-size: 13px; letter-spacing: 0.02em; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.weather-badge b { color: var(--cool); }
+.stage .sub + .weather-badge { margin-top: 6px; }
+
+.stage { padding: 34px 28px 10px; max-width: 1080px; margin: 0 auto; }
+.eyebrow { color: var(--accent); font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; }
+.stage h1 {
+  margin: 10px 0 6px; font-size: clamp(30px, 4.4vw, 56px); line-height: 0.95;
+  letter-spacing: -0.05em; font-weight: 760;
+}
+.stage p.sub { margin: 0; color: rgba(241,243,233,0.52); font-size: 12px; letter-spacing: 0.04em; }
+
+/* ---------- Hero metric ---------- */
+.metric-hero { display: flex; align-items: baseline; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+.metric-hero strong { font-size: 56px; line-height: 0.9; letter-spacing: -0.065em; font-variant-numeric: tabular-nums; }
+.metric-hero .unit { color: var(--muted); font-size: 13px; }
+.metric-hero .tagline { color: var(--accent); font-size: 12px; font-weight: 700; }
+
+/* ---------- Metric grid ---------- */
+.metric-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  margin-top: 26px; border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+  border-radius: 10px; overflow: hidden;
+}
+.metric-grid > div {
+  padding: 15px 14px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+.metric-grid span { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; margin-bottom: 8px; }
+.metric-grid strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.metric-grid small { color: var(--muted); font-size: 9px; font-weight: 600; }
+.metric-grid .accent-val { color: var(--accent); }
+
+/* ---------- Heat metrics grid (heat-acclimation) ---------- */
+.heat-metrics { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 16px; }
+.heat-card { padding: 12px 10px; border: 1px solid var(--line); border-radius: 10px;
+  background: color-mix(in srgb, var(--panel-soft) 90%, transparent); }
+.heat-card span { display: block; color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: 0.04em; }
+.heat-card strong { display: block; margin-top: 6px; font-size: 19px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.heat-card small { display: block; margin-top: 4px; color: var(--muted); font-size: 8.5px; }
+.heat-card.accent { border-color: color-mix(in srgb, var(--warn) 55%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--warn) 12%, transparent), rgba(255,255,255,0.02)); }
+.heat-card.accent strong { color: var(--warn); }
+@media (max-width: 720px) { .heat-metrics { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Data table (heat-acclimation trend) ---------- */
+.table-card { margin-top: 16px; border: 1px solid var(--line); border-radius: 10px; overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 11px; font-variant-numeric: tabular-nums; }
+.data-table thead th { padding: 9px 8px; text-align: center; color: var(--muted);
+  font-weight: 700; letter-spacing: 0.03em; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.data-table tbody td { padding: 8px; text-align: center; border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent); color: var(--ink); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr.hl td { background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); font-weight: 700; }
+.data-table tbody td b { color: var(--accent); }
+
+/* ---------- Sections ---------- */
+.section { max-width: 1080px; margin: 0 auto; padding: 26px 28px 4px; }
+.section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.section-heading > div { display: flex; align-items: center; gap: 9px; }
+.section-heading h2 { margin: 0; font-size: 15px; letter-spacing: -0.01em; }
+.section-number { color: var(--accent); font-size: 9px; font-weight: 800; letter-spacing: 0.1em; }
+.section-icon { color: color-mix(in srgb, var(--accent) 75%, var(--muted)); font-size: 16px; }
+.section-meta { color: var(--muted); font-size: 10px; }
+
+/* ---------- Analysis / profile card (accent gradient border) ---------- */
+.analysis-card {
+  margin-top: 18px; padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
+  border-radius: 10px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, transparent), rgba(255,255,255,0.018));
+}
+.analysis-card > .kicker { display: block; color: var(--accent); font-size: 8px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+.analysis-card strong { display: block; margin-top: 9px; font-size: 18px; letter-spacing: -0.02em; }
+.analysis-card p { margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.analysis-card p b { color: var(--ink); }
+
+/* ---------- Deep analysis list ---------- */
+.deep-analysis-list { display: grid; gap: 8px; margin-top: 16px; }
+.deep-analysis-card {
+  padding: 14px; border: 1px solid var(--line); border-radius: 10px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 4%, transparent), rgba(255,255,255,0.012));
+}
+.deep-analysis-card > span { display: block; color: var(--accent); font-size: 8px; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; }
+.deep-analysis-card h3 { margin: 7px 0 0; font-size: 13px; line-height: 1.4; }
+.deep-analysis-card p { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.62; }
+
+/* ---------- Recommendation list ---------- */
+.recommendation-list { display: grid; margin-top: 17px; border-top: 1px solid var(--line); }
+.recommendation-card {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.recommendation-card > div { min-width: 0; }
+.recommendation-number {
+  width: 28px; height: 28px; display: grid; place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
+  border-radius: 50%; color: var(--accent); font-size: 13px; font-weight: 700;
+  flex-shrink: 0;
+}
+.recommendation-meta { display: block; color: var(--muted); font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.recommendation-card h3 { margin: 6px 0 0; font-size: 14px; line-height: 1.35; word-break: keep-all; }
+.recommendation-card p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; word-break: normal; }
+
+/* ---------- Chart card ---------- */
+.chart-card { margin-top: 18px; padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,0.018); }
+.chart-card h3 { margin: 0 0 4px; font-size: 13px; }
+.chart-card .hint { color: var(--muted); font-size: 10px; margin: 0 0 12px; }
+.chart-wrap { position: relative; width: 100%; height: 240px; }
+
+/* ---------- Pills / tags ---------- */
+.tag { display: inline-block; background: var(--panel-soft); color: var(--accent); padding: 3px 11px; border-radius: 999px; font-size: 10px; margin: 2px; border: 1px solid var(--line); }
+.tag.warn { color: var(--warn); }
+.tag.cool { color: var(--cool); }
+.tag.danger { color: var(--danger); }
+
+/* ---------- Footer ---------- */
+.footer { max-width: 1080px; margin: 30px auto 0; padding: 18px 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; line-height: 1.6; }
+.footer b { color: var(--accent); }
+
+@media (max-width: 760px) {
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  .topbar { padding: 14px 18px; }
+  .stage, .section, .footer { padding-left: 18px; padding-right: 18px; }
+}

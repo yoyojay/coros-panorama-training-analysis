@@ -1,0 +1,12 @@
+# 本地生成的数据文件（含个人训练数据，勿提交）
+coros_*.json
+*.json.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 系统
+.DS_Store
