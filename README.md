@@ -19,6 +19,11 @@
 
 它既可以作为 WorkBuddy / 类似 Agent 的 Skill 直接调用，也可以当作纯 Python 脚本独立运行——**零 MCP 依赖，只要装一个 `httpx`**。
 
+<p align="center">
+  <img src="assets/report-preview.png" alt="训练报告预览 - 像素风月度报告" width="560" />
+</p>
+<p align="center"><em>报告预览：像素风月度训练总览（距离 / 配速 / 心率 / 恢复 / 负荷比 / 成就）</em></p>
+
 ---
 
 ## 二、核心能力（五大分析引擎）
@@ -83,6 +88,8 @@ coros-panorama-training-analysis/
 ├── SKILL.md                    # 技能定义（API 参考、踩坑经验、质量门禁，给 Agent 读）
 ├── README.md                   # 你正在看的这份详细说明
 ├── LICENSE                     # MIT
+├── assets/
+│   └── report-preview.png      # 报告预览图
 ├── references/
 │   ├── ride_relief_style.css   # Ride Relief 设计系统（自包含可内联）
 │   ├── heat_metrics.py         # 热适应：WBGT / 体感 / 露点 / 跨日适应
