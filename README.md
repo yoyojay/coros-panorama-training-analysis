@@ -19,10 +19,39 @@
 
 它既可以作为 WorkBuddy / 类似 Agent 的 Skill 直接调用，也可以当作纯 Python 脚本独立运行——**零 MCP 依赖，只要装一个 `httpx`**。
 
+## 报告预览
+
 <p align="center">
-  <img src="assets/report-preview.png" alt="训练报告预览 - 像素风月度报告" width="560" />
+  <img src="assets/report-preview.png" alt="月度训练总览 - 像素风" width="520" />
 </p>
-<p align="center"><em>报告预览：像素风月度训练总览（距离 / 配速 / 心率 / 恢复 / 负荷比 / 成就）</em></p>
+<p align="center"><em>月度训练总览：距离 / 次数 / 配速 / 心率 / 恢复状态 / 负荷比 / 成就徽章</em></p>
+
+<p align="center">
+  <img src="assets/preview-lsd-pixel.png" alt="LSD 长距离跑 - 像素风" width="480" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/preview-strength.png" alt="力量训练报告" width="480" />
+</p>
+<p align="center">
+  <em>左：LSD 长距离跑 —— 逐公里配速 + 心率 6 区分布 + 训练负荷</em>
+  &nbsp;·&nbsp;
+  <em>右：力量训练 —— 组数 / 部位拆解 / 训练量时间线</em>
+</p>
+
+<p align="center">
+  <img src="assets/preview-lsd-sunset.png" alt="LSD 日落剪影风格" width="480" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/preview-18k-pixel.png" alt="18K 像素风" width="480" />
+</p>
+<p align="center">
+  <em>左：EasyRun LSD（日落剪影风格）—— 每公里配速按区间着色</em>
+  &nbsp;·&nbsp;
+  <em>右：18K EasyRun（像素风）—— 配速/公里柱状图 + Threshold 区间标注</em>
+</p>
+
+<p align="center">
+  <img src="assets/preview-monthly-report.png" alt="月度综合报告" width="560" />
+</p>
+<p align="center"><em>月度综合性能报告：路线地图 + 训练拆解 + 恢复状态 + 负荷曲线 + COROS Fitness 评分 + 全马预测</em></p>
 
 ---
 
@@ -89,7 +118,12 @@ coros-panorama-training-analysis/
 ├── README.md                   # 你正在看的这份详细说明
 ├── LICENSE                     # MIT
 ├── assets/
-│   └── report-preview.png      # 报告预览图
+│   ├── report-preview.png       # 月度总览（像素风）
+│   ├── preview-lsd-pixel.png    # LSD 长距离跑（像素风）
+│   ├── preview-strength.png     # 力量训练报告
+│   ├── preview-lsd-sunset.png   # LSD（日落剪影风格）
+│   ├── preview-18k-pixel.png    # 18K EasyRun（像素风）
+│   └── preview-monthly-report.png # 月度综合性能报告
 ├── references/
 │   ├── ride_relief_style.css   # Ride Relief 设计系统（自包含可内联）
 │   ├── heat_metrics.py         # 热适应：WBGT / 体感 / 露点 / 跨日适应
